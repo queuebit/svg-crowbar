@@ -139,7 +139,7 @@
 
   function getSources(doc, styles) {
     var svgInfo = [],
-        svgs = doc.querySelectorAll("svg");
+        svgs = doc.querySelectorAll("svg.crowbar");
 
     styles = (styles === undefined) ? "" : styles;
 
