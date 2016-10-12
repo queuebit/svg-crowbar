@@ -1,7 +1,7 @@
-(function(sel) {
+(function() {
   var doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">';
 
-  console.log(sel);
+  debugger;
   window.URL = (window.URL || window.webkitURL);
 
   var body = document.body;
@@ -12,9 +12,9 @@
     svg: "http://www.w3.org/2000/svg"
   }
 
-  initialize(sel);
+  initialize();
 
-  function initialize(sel) {
+  function initialize() {
     var documents = [window.document],
         SVGSources = [];
         iframes = document.querySelectorAll("iframe"),
@@ -42,7 +42,7 @@
 
     documents.forEach(function(doc) {
       var styles = getStyles(doc);
-      var newSources = getSources(doc, styles, sel);
+      var newSources = getSources(doc, styles);
       // because of prototype on NYT pages
       for (var i = 0; i < newSources.length; i++) {
         SVGSources.push(newSources[i]);
@@ -137,9 +137,9 @@
   }
 
 
-  function getSources(doc, styles, sel) {
+  function getSources(doc, styles) {
     var svgInfo = [],
-        svgs = doc.querySelectorAll(sel);
+        svgs = doc.querySelectorAll("svg");
 
     styles = (styles === undefined) ? "" : styles;
 
@@ -242,4 +242,4 @@
     return styles;
   }
 
-})(sel);
+})();
