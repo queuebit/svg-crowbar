@@ -242,4 +242,4 @@
     return styles;
   }
 
-})();
+})(sel);
